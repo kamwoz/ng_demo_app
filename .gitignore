@@ -5,3 +5,11 @@ bower_components/
 tmp
 .DS_Store
 .idea
+
+# Parameters
+/config/parameters.js
+
+# TypeScript
+typings
+
+app/**.js
