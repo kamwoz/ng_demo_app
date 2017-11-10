@@ -7,9 +7,9 @@ tmp
 .idea
 
 # Parameters
-/config/parameters.js
+app/config/parameters.js
 
 # TypeScript
 typings
 
-app/**.js
+app/**/*.js

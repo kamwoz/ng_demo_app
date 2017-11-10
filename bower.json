@@ -23,6 +23,7 @@
     "html5-boilerplate": "^5.3.0"
   },
   "resolutions": {
-    "angular": "1.5.8"
+    "angular": "1.5.8",
+    "angular-ui-router": "^1.0.10"
   }
 }
