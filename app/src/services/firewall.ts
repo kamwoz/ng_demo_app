@@ -7,7 +7,7 @@ namespace app.services {
         go(to: ng.ui.IState, params?: {}, options?: IAppStateOptions): angular.IPromise<any>;
     }
     class Firewall {
-        constructor(protected $rootScope: ng.IRootScopeService,
+        constructor(protected $rootScope,
                     protected $state: IAppStateService,
                     protected $window: ng.IWindowService,
                     protected globalParams: IGlobalParams,
@@ -82,9 +82,7 @@ namespace app.services {
 
             // handling state not found
             this.$rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-                if (that.globalParams.dev_env) {
-                    console.log(event, toState, toParams, fromState, fromParams, error);
-                }
+                console.log(event, toState, toParams, fromState, fromParams, error);
             });
         }
 

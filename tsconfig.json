@@ -11,15 +11,8 @@
     "rootDir": "./",
     "newLine": "LF"
   },
-  "filesGlob": [
-    "./**/*.ts",
-    "./**/*.tsx"
-  ],
   "exclude": [
     "node_modules",
-    "vendor",
-    "app",
-    "typings/main.d.ts",
-    "typings/main"
+    "./app/bower_components"
   ]
 }

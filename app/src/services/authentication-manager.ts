@@ -1,3 +1,12 @@
+declare namespace angular {
+    export interface IRootScopeService {
+        isAuthed(): boolean;
+    }
+    export interface IHttpRequestConfigApiCommonHeaders {
+        Authorization: string;
+    }
+}
+
 namespace app.services {
     export interface JWTParseResult {
         exp: number;
@@ -5,12 +14,6 @@ namespace app.services {
         iat: number;
     }
 
-    interface User {
-        id: number;
-        email: string;
-        firstname: string;
-        lastname: string;
-    }
     export class AuthenticationManager {
         constructor(
             $rootScope: ng.IRootScopeService,
@@ -52,11 +55,9 @@ namespace app.services {
             return JSON.parse(this.$window.atob(base64));
         }
 
-        onLogIn(response: ILoginResponse) {
+        onLogIn(response: any) {
             this.setToken(response.token);
-            this.setUser(response.user);
             this.setDefaults();
-            this.variableService.clearLocalVariables();
         }
 
         onLogOut() {

@@ -1,5 +1,3 @@
-declare let angular: any;
-
 ((): void => {
     'use strict';
 

@@ -3,7 +3,7 @@
         $stateProvider
             .state('offline', {
                 url: '/login',
-                templateUrl: '/src/pages/login/login.html',
+                templateUrl: '/ng_sf_app/app/src/pages/login/login.html',
             });
     }]);
 })();
