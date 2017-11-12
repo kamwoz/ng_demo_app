@@ -21,7 +21,7 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div>
+  <div style="padding-top: 30px;">
     <online-header ng-if="isAuthed()"></online-header>
     <offline-header ng-if="!isAuthed()"></offline-header>
     <div class="content" ui-view></div>
@@ -46,7 +46,7 @@
   <script src="src/services/authorization-manager.js"></script>
   <script src="src/pages/partials/offline_header/offline_header.component.js"></script>
   <script src="src/pages/partials/online_header/online_header.component.js"></script>
-  <script src="routing.js"></script>
+  <script src="src/pages/login/login.routing.js"></script>
   <script src="src/pages/homepage.routing.js"></script>
 
   <!--this file at the end!-->

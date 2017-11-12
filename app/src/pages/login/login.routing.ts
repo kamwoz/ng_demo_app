@@ -1,6 +1,6 @@
 namespace app.routing {
 
-    class MainRouting {
+    class LoginRouting {
         static $inject = ['$stateProvider'];
 
         constructor($stateProvider: ng.ui.IStateProvider) {
@@ -8,10 +8,10 @@ namespace app.routing {
                 .state('offline', {
                     url: '/login',
                     templateUrl: '/ng_sf_app/app/src/pages/login/login.html',
+                    controller: 'LoginController'
                 });
-            ;
         }
     }
 
-    angular.module('myDemoApp').config(MainRouting);
+    angular.module('myDemoApp').config(LoginRouting);
 }
