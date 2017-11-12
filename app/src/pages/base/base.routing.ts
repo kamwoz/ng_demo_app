@@ -7,15 +7,6 @@ namespace app.routing {
         constructor($stateProvider: ng.ui.IStateProvider) {
 
             $stateProvider
-                .state('not-logged', {
-                    templateUrl: '/ng_sf_app/app/src/pages/base/not_logged.html',
-                    controller: ($state, $scope) => {
-                        let referer = $state.options.referer;
-                        if (!angular.isUndefined(referer)) {
-                            $scope.srefOptions = {referer: referer};
-                        }
-                    }
-                })
                 .state('not-authorized', {
                     templateUrl: '/ng_sf_app/app/src/pages/base/not_authorized.html',
                     controller: ['$window', '$scope', ($window, $scope) => {
@@ -30,7 +21,7 @@ namespace app.routing {
                         (authenticationManager: AuthenticationManager,
                          $state) => {
                             if (authenticationManager.isAuthed()) {
-                                // $state.go('dashboard');
+                                $state.go('app');
                             } else {
                                 $state.go('offline');
                             }

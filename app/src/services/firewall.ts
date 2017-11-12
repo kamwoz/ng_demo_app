@@ -21,12 +21,11 @@ namespace app.services {
             let that = this;
             this.$rootScope.$on('$stateChangeStart', (event, toState, toParams, fromState) => {
                 let loginNeeded = true,
-                    previousUrl = fromState.name !== '' ? 'https://' + that.$window.location.host + fromState.url : that.$window.location.href,
-                    nextUrl = 'https://' + that.$window.location.host + toState.url;
+                    previousUrl = fromState.name !== '' ? 'http://' + that.$window.location.host + fromState.url : that.$window.location.href;
 
                 that.globalParams.unprotected_states.forEach((route) => {
                     let regex = new RegExp('^' + that.escapeRegExp(route) + '.*');
-                    if (regex.test(toState.name) || nextUrl === 'https://' + that.$window.location.host + '/') {
+                    if (regex.test(toState.name)) {
                         // additional local storage clear on unprotected paths
                         loginNeeded = false;
                     }
@@ -35,15 +34,9 @@ namespace app.services {
                 if (loginNeeded) {
                     if (!that.authenticationManager.isAuthed()) {
                         event.preventDefault();
-                        let commercialRegex = new RegExp('^https:\/\/' + that.escapeRegExp(that.$window.location.host) + '\/commercial.*'),
-                            state = 'not-logged';
-
-                        if (commercialRegex.test(nextUrl)) {
-                            state = 'not-logged-commercial';
-                        }
 
                         // save referer to
-                        that.$state.go(state, {}, {
+                        that.$state.go('offline', {}, {
                             location: 'replace',
                             referer: previousUrl
                         });
