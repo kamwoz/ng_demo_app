@@ -1,15 +1,15 @@
 namespace app.controllers {
-    class LoginController implements ng.IController {
+    export class LoginController {
         static $inject = ['$scope'];
 
         constructor($scope: ng.IScope) {
             $scope.logIn = () => this.logIn();
         }
 
-        private logIn() {
+        logIn() {
 
         }
     }
 
-    angular.module('myDemoApp').controller(LoginController);
+    angular.module('myDemoApp').controller('LoginController', <any>LoginController);
 }
