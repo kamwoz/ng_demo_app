@@ -5,6 +5,7 @@
     angular.module('myDemoApp', [
         'ui.router',
         'LocalStorageModule',
+        'ngMaterial',
     ]).run([
         'firewall', (firewall) => {
             firewall.init();
