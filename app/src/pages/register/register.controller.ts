@@ -1,9 +1,10 @@
 namespace app.controllers {
-    import IController = angular.IController;
 
-    interface RegisterModel {
+    import RegisterService = app.services.RegisterService;
+
+    export interface RegisterModel {
         email?: string;
-        password?: string;
+        plainPassword?: string|{first: string, second: string};
         firstname?: string;
         lastname?: string;
     }
@@ -14,15 +15,16 @@ namespace app.controllers {
     }
 
     export class RegisterController {
-        static $inject = ['$scope'];
+        static $inject = ['$scope', 'RegisterService'];
 
-        constructor($scope: RegisterScope) {
+        constructor(public $scope: RegisterScope,
+                    protected registerService: RegisterService) {
             $scope.user = {};
             $scope.register = () => this.register();
         }
 
         register() {
-
+            this.registerService.postRegister(this.$scope.user);
         }
     }
 
