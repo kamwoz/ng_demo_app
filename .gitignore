@@ -6,10 +6,10 @@ tmp
 .DS_Store
 .idea
 
-# Parameters
-app/config/parameters.js
-
 # TypeScript
 typings
 
 app/**/*.js
+
+!app/src/directives/ng-enter.js
+!app/config/config.http.js
