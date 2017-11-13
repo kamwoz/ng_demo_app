@@ -6,6 +6,8 @@
         'ui.router',
         'LocalStorageModule',
         'ngMaterial',
+        'ngToast',
+        'ngSanitize',
     ]).run([
         'firewall', (firewall) => {
             firewall.init();

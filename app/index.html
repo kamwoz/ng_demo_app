@@ -9,10 +9,12 @@
   <title>Demo app</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/ng_sf_app/app/bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="/ng_sf_app/app/bower_components/html5-boilerplate/dist/css/main.css">
-  <link rel="stylesheet" href="/ng_sf_app/app/bower_components/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="/ng_sf_app/app/app.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.min.css">
+  <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast-animations.min.css">
+  <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
@@ -22,6 +24,7 @@
   <![endif]-->
 
   <div style="padding-top: 30px;">
+    <toast></toast>
     <online-header ng-if="isAuthed()"></online-header>
     <offline-header ng-if="!isAuthed()"></offline-header>
     <div class="content" ui-view></div>
@@ -29,12 +32,14 @@
 
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="bower_components/ngToast/dist/ngToast.min.js"></script>
   <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 
   <!-- Angular Material requires Angular.js Libraries -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
 
   <!-- Angular Material Library -->
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>

@@ -15,16 +15,23 @@ namespace app.controllers {
     }
 
     export class RegisterController {
-        static $inject = ['$scope', 'RegisterService'];
+        static $inject = ['$scope', 'RegisterService', 'ngToast', '$state'];
 
         constructor(public $scope: RegisterScope,
-                    protected registerService: RegisterService) {
+                    protected registerService: RegisterService,
+                    protected ngToast,
+                    protected $state: ng.ui.IStateService) {
             $scope.user = {};
             $scope.register = () => this.register();
         }
 
         register() {
-            this.registerService.postRegister(this.$scope.user);
+            this.registerService.postRegister(this.$scope.user).then(
+                () => {
+                    this.ngToast.create('Registered successfully');
+                    this.$state.go('offline');
+                }
+            );
         }
     }
 
