@@ -55,7 +55,7 @@ namespace app.services {
             return JSON.parse(this.$window.atob(base64));
         }
 
-        onLogIn(response: any) {
+        onLogIn(response: ILoginResponse) {
             this.setToken(response.token);
             this.setDefaults();
         }
@@ -82,11 +82,11 @@ namespace app.services {
                 return new AuthenticationManager($rootScope, $state, $window, localStorageService, $http, authorizationManager);
             };
 
-            factory['$inject'] = ['$rootScope', '$state', '$window', 'localStorageService', '$http', 'authorizationManager'];
+            factory['$inject'] = ['$rootScope', '$state', '$window', 'localStorageService', '$http', 'AuthorizationManager'];
 
             return factory;
         }
     }
 
-    angular.module('myDemoApp').factory('authenticationManager', AuthenticationManager.Factory());
+    angular.module('myDemoApp').factory('AuthenticationManager', AuthenticationManager.Factory());
 }

@@ -88,7 +88,7 @@ namespace app.services {
                 return new Firewall($rootScope, $state, $window, globalParams, authenticationManager, authorizationManager, $filter);
             };
 
-            factory['$inject'] = ['$rootScope', '$state', '$window', 'globalParams', 'authenticationManager', 'authorizationManager', '$filter'];
+            factory['$inject'] = ['$rootScope', '$state', '$window', 'globalParams', 'AuthenticationManager', 'AuthorizationManager', '$filter'];
 
             return factory;
         }

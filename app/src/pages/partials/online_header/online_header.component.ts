@@ -12,7 +12,7 @@ namespace app.components {
         }
     }
     class OnlineHeader {
-        static $inject = ['authenticationManager'];
+        static $inject = ['AuthenticationManager'];
 
         constructor(private authenticationManager: AuthenticationManager) {
         }

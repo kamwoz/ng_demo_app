@@ -17,7 +17,7 @@ namespace app.routing {
 
                 .state('main-redirect', {
                     url: '/',
-                    controller: ['authenticationManager', '$state',
+                    controller: ['AuthenticationManager', '$state',
                         (authenticationManager: AuthenticationManager,
                          $state) => {
                             if (authenticationManager.isAuthed()) {

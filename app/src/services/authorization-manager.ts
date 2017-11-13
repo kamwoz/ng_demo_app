@@ -30,7 +30,7 @@ namespace app.services {
             return hasRole;
         }
 
-        protected setRoles(rolesData) {
+        public setRoles(rolesData) {
             this.localStorageService.set('roles', rolesData);
             this.roles = this.getRoles();
         }
@@ -50,5 +50,5 @@ namespace app.services {
         }
     }
 
-    angular.module('myDemoApp').factory('authorizationManager', AuthorizationManager.Factory());
+    angular.module('myDemoApp').factory('AuthorizationManager', AuthorizationManager.Factory());
 }
