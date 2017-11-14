@@ -7,12 +7,23 @@ namespace app.components {
         };
     }
 
+    interface IFolderAllowedExtensions {
+        pdf: boolean;
+        video: boolean;
+        photo: boolean;
+        audio: boolean;
+        spreadsheet: boolean;
+        doc: boolean;
+    }
+
     export class FolderNodeController {
         static $inject = ['$scope'];
         public folder: IFolderTree;
+        public folderAllowedExtensions: IFolderAllowedExtensions;
 
         constructor(protected $scope: ng.IScope) {
             $scope.folder = this.folder;
+            this.folderAllowedExtensions = {};
         }
 
         public addFolder() {

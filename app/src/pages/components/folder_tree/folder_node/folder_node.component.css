@@ -2,6 +2,15 @@ folder-node:not(.first) {
     padding: 0 2em;
 }
 
-folder-node:not(.first) .folders {
+folder-node:not(.first) > *:not(md-switch) {
     padding: 0 2em;
+}
+
+folder-node md-switch {
+    padding-top: 33px;
+    display: inline-block;
+}
+
+folder-node md-input-container {
+    margin: 0;
 }
