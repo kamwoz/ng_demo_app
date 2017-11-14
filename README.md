@@ -8,7 +8,7 @@ Installation
 
 If you have typescript compiler run ``tsc`` command
 
-###Running app
+### Running app
 
 ``./node_modules/http-server/bin/http-server -a localhost -p 8000 -c-1 ./app``
 
