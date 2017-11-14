@@ -7,7 +7,7 @@ namespace app.routing {
             $stateProvider
                 .state('offline', {
                     url: '/login',
-                    templateUrl: '/ng_sf_app/app/src/pages/login/login.html',
+                    templateUrl: '/src/pages/login/login.html',
                     controller: 'LoginController'
                 });
         }

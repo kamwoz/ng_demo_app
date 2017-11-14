@@ -8,7 +8,7 @@ namespace app.routing {
 
             $stateProvider
                 .state('not-authorized', {
-                    templateUrl: '/ng_sf_app/app/src/pages/base/not_authorized.html',
+                    templateUrl: '/src/pages/base/not_authorized.html',
                     controller: ['$window', '$scope', ($window, $scope) => {
                         $scope.refresh = () => $window.history.back();
                     }]
@@ -30,7 +30,7 @@ namespace app.routing {
                 // this route have to be last on the list
                 .state('not-found', {
                     url: '*path',
-                    templateUrl: '/ng_sf_app/app/src/pages/base/not_found.html'
+                    templateUrl: '/src/pages/base/not_found.html'
                 });
         }
     }

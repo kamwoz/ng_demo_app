@@ -7,7 +7,7 @@ namespace app.routing {
             $stateProvider
                 .state('register', {
                     url: '/register',
-                    templateUrl: '/ng_sf_app/app/src/pages/register/register.html',
+                    templateUrl: '/src/pages/register/register.html',
                     controller: 'RegisterController'
                 });
         }

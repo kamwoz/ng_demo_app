@@ -6,7 +6,7 @@ namespace app.routing {
 
             $stateProvider
                 .state('app', {
-                    templateUrl: '/ng_sf_app/app/src/pages/homepage.html',
+                    templateUrl: '/src/pages/homepage.html',
                     url: '/dashboard'
                 });
         }
