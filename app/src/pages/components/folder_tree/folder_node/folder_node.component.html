@@ -4,7 +4,7 @@
 </md-input-container>
 
 <md-button class="md-raised" ng-click="$ctrl.addFolder()">&nbsp Add folder &nbsp</md-button>
-<md-button class="md-raised" ng-click="$ctrl.removeFolder()">&nbsp Remove folder &nbsp</md-button>
+<md-button class="md-raised md-warn" ng-click="$ctrl.removeFolder()">&nbsp Remove folder &nbsp</md-button>
 
 <md-switch ng-model="areFiltersActive" aria-label="Show allowed types?">
     <span>Show allowed types</span>
@@ -12,12 +12,12 @@
 
 <div class="filters" ng-show="areFiltersActive">
     <span>Allowed types: </span>
-    <md-checkbox aria-label="PDF" ng-model="$ctrl.folderAllowedExtensions.pdf">PDF</md-checkbox>
-    <md-checkbox aria-label="Photo" ng-model="$ctrl.folderAllowedExtensions.photo">Photo</md-checkbox>
-    <md-checkbox aria-label="Spreadsheet" ng-model="$ctrl.folderAllowedExtensions.spreadsheet">Spreadsheet</md-checkbox>
-    <md-checkbox aria-label="Doc" ng-model="$ctrl.folderAllowedExtensions.doc">Doc</md-checkbox>
-    <md-checkbox aria-label="Video" ng-model="$ctrl.folderAllowedExtensions.video">Video</md-checkbox>
-    <md-checkbox aria-label="Audio" ng-model="$ctrl.folderAllowedExtensions.audio">Audio</md-checkbox>
+    <md-checkbox aria-label="PDF" ng-model="$ctrl.folder.allowedExtensions.pdf">PDF</md-checkbox>
+    <md-checkbox aria-label="Photo" ng-model="$ctrl.folder.allowedExtensions.photo">Photo</md-checkbox>
+    <md-checkbox aria-label="Spreadsheet" ng-model="$ctrl.folder.allowedExtensions.spreadsheet">Spreadsheet</md-checkbox>
+    <md-checkbox aria-label="Doc" ng-model="$ctrl.folder.allowedExtensions.doc">Doc</md-checkbox>
+    <md-checkbox aria-label="Video" ng-model="$ctrl.folder.allowedExtensions.video">Video</md-checkbox>
+    <md-checkbox aria-label="Audio" ng-model="$ctrl.folder.allowedExtensions.audio">Audio</md-checkbox>
 </div>
 
 <div ng-repeat="folder in folder.childrens" class="folders">

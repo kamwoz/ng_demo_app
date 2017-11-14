@@ -1,4 +1,6 @@
 namespace app.components {
+    import FolderService = app.services.FolderService;
+
     class FolderTreeComponent implements ng.IComponentOptions {
         templateUrl = '/src/pages/components/folder_tree/folder_tree.component.html';
         controller = FolderTreeController;
@@ -7,23 +9,37 @@ namespace app.components {
     export interface IFolderTree {
         name: string;
         childrens: IFolderTree[];
+        allowedExtensions: IFolderAllowedExtensions;
+    }
+
+    export interface IFolderAllowedExtensions {
+        pdf: boolean;
+        video: boolean;
+        photo: boolean;
+        audio: boolean;
+        spreadsheet: boolean;
+        doc: boolean;
     }
 
     export class FolderTreeController {
-        static $inject = ['$scope'];
-        folders: IFolderTree[];
+        static $inject = ['$scope', 'FolderService', 'ngToast'];
+        folders: IFolderTree[] = [];
 
-        constructor($scope: ng.IScope) {
-            $scope.folders = this.folders = [
-                {
-                    name: 'test name', childrens: []
-                }
-            ];
+        constructor(protected $scope: ng.IScope,
+                    protected folderService: FolderService,
+                    protected ngToast) {
         }
 
         public addFolder() {
-            let folder: IFolderTree = {name: '', childrens: []};
+            let folder: IFolderTree = {name: '', childrens: [], allowedExtensions: {}};
             this.folders.push(folder);
+        }
+
+        public updateStructure() {
+            this.folderService.updateStructure(this.folders).then(
+                () => this.ngToast.create('Structure updated'),
+                () => this.ngToast.create({className: 'danger', content: 'Update error'})
+            );
         }
     }
 
