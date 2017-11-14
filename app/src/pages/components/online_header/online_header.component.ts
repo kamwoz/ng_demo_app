@@ -7,7 +7,7 @@ namespace app.components {
         public templateUrl: string;
 
         constructor() {
-            this.templateUrl = '/src/pages/partials/online_header/online_header.component.html';
+            this.templateUrl = '/src/pages/components/online_header/online_header.component.html';
             this.controller = OnlineHeader;
         }
     }
