@@ -3,22 +3,23 @@ namespace app.components {
 
     class FolderTreeComponent implements ng.IComponentOptions {
         templateUrl = '/src/pages/components/folder_tree/folder_tree.component.html';
-        controller = FolderTreeController;
+        controller = <any>FolderTreeController;
     }
 
     export interface IFolderTree {
         name: string;
         childrens: IFolderTree[];
         allowedExtensions: IFolderAllowedExtensions;
+        $$hashKey?: string; // angular internal
     }
 
     export interface IFolderAllowedExtensions {
-        pdf: boolean;
-        video: boolean;
-        photo: boolean;
-        audio: boolean;
-        spreadsheet: boolean;
-        doc: boolean;
+        pdf?: boolean;
+        video?: boolean;
+        photo?: boolean;
+        audio?: boolean;
+        spreadsheet?: boolean;
+        doc?: boolean;
     }
 
     export class FolderTreeController {
@@ -28,6 +29,7 @@ namespace app.components {
         constructor(protected $scope: ng.IScope,
                     protected folderService: FolderService,
                     protected ngToast) {
+            $scope.folders = this.folders;
         }
 
         public addFolder() {
@@ -43,5 +45,5 @@ namespace app.components {
         }
     }
 
-    angular.module('myDemoApp').component('folderTree', new FolderTreeComponent());
+    angular.module('myDemoApp').component('folderTree', <any>(new FolderTreeComponent()));
 }

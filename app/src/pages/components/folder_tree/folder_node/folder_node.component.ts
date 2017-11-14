@@ -1,7 +1,7 @@
 namespace app.components {
     class FolderNodeComponent implements ng.IComponentOptions {
         templateUrl = '/src/pages/components/folder_tree/folder_node/folder_node.component.html';
-        controller = FolderNodeController;
+        controller = <any>FolderNodeController;
         bindings = {
             folder: '='
         };
@@ -16,7 +16,7 @@ namespace app.components {
         }
 
         public addFolder() {
-            let folder: IFolderTree = { name: '', childrens: [], allowedExtensions: {}};
+            let folder = { name: '', childrens: [], allowedExtensions: {}};
             this.folder.childrens.push(folder);
         }
 
