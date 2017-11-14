@@ -1,0 +1,11 @@
+<md-input-container>
+    <label>Folder name</label>
+    <input ng-model="$ctrl.folder.name">
+</md-input-container>
+
+<md-button class="md-raised" ng-click="$ctrl.addFolder()">&nbsp Add folder &nbsp</md-button>
+<md-button class="md-raised" ng-click="$ctrl.removeFolder()">&nbsp Remove folder &nbsp</md-button>
+
+<div ng-repeat="folder in folder.childrens" class="folders">
+    <folder-node folder="folder"></folder-node>
+</div>

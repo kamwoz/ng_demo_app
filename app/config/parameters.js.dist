@@ -1,10 +1,17 @@
 angular.module('myDemoApp').constant('globalParams', {
-    API: "http://api.demo-app.local/app_dev.php",
+    API: "http://127.0.0.1:8001",
     unprotected_states: [
+        'offline',
+        'register',
         'login',
-        'registration'
+        'not-found',
+        'main-redirect',
+        'not-authorized'
     ],
     protected_states: {
-
+        'app': {
+            operator: 'OR',
+            roles: ['ROLE_USER']
+        }
     }
 });

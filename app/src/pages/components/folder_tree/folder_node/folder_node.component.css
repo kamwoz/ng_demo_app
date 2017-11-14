@@ -1,0 +1,7 @@
+folder-node:not(.first) {
+    padding: 0 2em;
+}
+
+folder-node:not(.first) .folders {
+    padding: 0 2em;
+}
