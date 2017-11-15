@@ -9,7 +9,7 @@ namespace app.services {
                     protected $httpParamSerializerJQLike: IHttpParamSerializer) {}
 
         public updateStructure(formData): ng.IPromise<any> {
-            return this.$http.post(`${this.globalParams.API}/api/folder?XDEBUG_SESSION_START=PHPSTORM`, formData)
+            return this.$http.post(`${this.globalParams.API}/api/folder`, formData)
                 .then((response) => response.data);
         }
     }
