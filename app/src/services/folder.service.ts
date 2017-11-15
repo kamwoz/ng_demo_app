@@ -12,6 +12,11 @@ namespace app.services {
             return this.$http.post(`${this.globalParams.API}/api/folder`, formData)
                 .then((response) => response.data);
         }
+
+        public getFolderStructure(): ng.IPromise<any> {
+            return this.$http.get(`${this.globalParams.API}/api/folder`)
+                .then((response) => JSON.parse(response.data));
+        }
     }
 
     angular.module('myDemoApp').service('FolderService', FolderService);

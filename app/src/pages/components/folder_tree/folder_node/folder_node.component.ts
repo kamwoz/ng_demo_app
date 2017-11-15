@@ -16,7 +16,7 @@ namespace app.components {
         }
 
         public addFolder() {
-            let folder = { name: '', childrens: [], allowedExtensions: {}};
+            let folder = { name: '', childrens: [], allowed_extensions: {}};
             this.folder.childrens.push(folder);
         }
 

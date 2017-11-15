@@ -4,12 +4,15 @@ namespace app.components {
     class FolderTreeComponent implements ng.IComponentOptions {
         templateUrl = '/src/pages/components/folder_tree/folder_tree.component.html';
         controller = <any>FolderTreeController;
+        bindings = {
+            folders: '='
+        };
     }
 
     export interface IFolderTree {
         name: string;
         childrens: IFolderTree[];
-        allowedExtensions: IFolderAllowedExtensions;
+        allowed_extensions: IFolderAllowedExtensions;
         $$hashKey?: string; // angular internal
     }
 
@@ -24,7 +27,7 @@ namespace app.components {
 
     export class FolderTreeController {
         static $inject = ['$scope', 'FolderService', 'ngToast'];
-        folders: IFolderTree[] = [];
+        folders: IFolderTree[];
 
         constructor(protected $scope: ng.IScope,
                     protected folderService: FolderService,
@@ -33,7 +36,7 @@ namespace app.components {
         }
 
         public addFolder() {
-            let folder: IFolderTree = {name: '', childrens: [], allowedExtensions: {}};
+            let folder: IFolderTree = {name: '', childrens: [], allowed_extensions: {}};
             this.folders.push(folder);
         }
 
