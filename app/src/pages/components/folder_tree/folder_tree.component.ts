@@ -40,6 +40,33 @@ namespace app.components {
             this.folders.push(folder);
         }
 
+        public validateStructure() {
+            return this.isTreeValid(this.folders);
+        }
+
+        private isTreeValid(folders: IFolderTree[]) {
+            let isTreeValid = true;
+
+            angular.forEach(folders, (child) => {
+                if (angular.isUndefined(child.name) || child.name === '') {
+                    isTreeValid = false;
+                }
+                angular.forEach(folders, (sibling) => {
+                    if (child.name === sibling.name && child.$$hashKey !== sibling.$$hashKey) {
+                        isTreeValid = false;
+                    }
+                });
+                if (child.childrens.length > 0) {
+                    let result = this.isTreeValid(child.childrens);
+                    if (!result) {
+                        isTreeValid = result;
+                    }
+                }
+            });
+
+            return isTreeValid;
+        }
+
         public updateStructure() {
             this.folderService.updateStructure(this.folders).then(
                 () => this.ngToast.create('Structure updated'),

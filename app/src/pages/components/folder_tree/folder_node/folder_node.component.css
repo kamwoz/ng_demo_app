@@ -6,6 +6,10 @@ folder-node:not(.first) > *:not(md-switch) {
     padding: 0 2em;
 }
 
+folder-node form {
+    display: inline-block;
+}
+
 folder-node md-switch {
     padding-top: 33px;
     display: inline-block;

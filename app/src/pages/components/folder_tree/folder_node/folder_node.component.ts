@@ -20,6 +20,30 @@ namespace app.components {
             this.folder.childrens.push(folder);
         }
 
+        public validateUniqueName() {
+            this.$scope.folderNameForm['folder_name'].$setValidity('uniqueName', true);
+            let folder = this.$scope.$parent.$parent.folder;
+            if (!angular.isUndefined(folder)) {
+                angular.forEach(folder.childrens, (children) => {
+                    angular.forEach(folder.childrens, (sibling) => {
+                        if (children.name === sibling.name && children.$$hashKey !== sibling.$$hashKey) {
+                            this.$scope.folderNameForm['folder_name'].$setValidity('uniqueName', false);
+                        }
+                    });
+                });
+            } else {
+                // otherwise its top level folders array
+                let folders = this.$scope.$parent.$parent.folders;
+                angular.forEach(folders, (children) => {
+                    angular.forEach(folders, (sibling) => {
+                        if (children.name === sibling.name && children.$$hashKey !== sibling.$$hashKey) {
+                            this.$scope.folderNameForm['folder_name'].$setValidity('uniqueName', false);
+                        }
+                    });
+                });
+            }
+        }
+
         public removeFolder() {
             const removeFolder = (folder, arrayIndex, foldersArray) => {
                 if (folder.$$hashKey === this.folder.$$hashKey) {

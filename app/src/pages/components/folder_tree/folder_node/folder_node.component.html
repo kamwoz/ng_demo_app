@@ -1,9 +1,14 @@
-<md-input-container>
-    <label>Folder name</label>
-    <input ng-model="$ctrl.folder.name">
-</md-input-container>
+<form name="folderNameForm">
+    <md-input-container>
+        <label>Folder name</label>
+        <input ng-model="$ctrl.folder.name" ng-required ng-change="$ctrl.validateUniqueName()" name="folder_name">
+        <div ng-messages="folderNameForm.folder_name.$error">
+            <div ng-message="uniqueName" ng-show="folderNameForm.folder_name.$error.uniqueName">Folder name should be unique in one parent scope</div>
+        </div>
+    </md-input-container>
+</form>
 
-<md-button class="md-raised" ng-click="$ctrl.addFolder()">&nbsp Add folder &nbsp</md-button>
+<md-button class="md-raised" ng-click="$ctrl.folder.name && $ctrl.addFolder()" ng-disabled="!$ctrl.folder.name">&nbsp Add folder &nbsp</md-button>
 <md-button class="md-raised md-warn" ng-click="$ctrl.removeFolder()">&nbsp Remove folder &nbsp</md-button>
 
 <md-switch ng-model="areFiltersActive" aria-label="Show allowed types?">

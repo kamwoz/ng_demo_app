@@ -3,5 +3,5 @@
     <div class="folder-node" ng-repeat="folder in $ctrl.folders">
         <folder-node folder="folder" class="first"></folder-node>
     </div>
-    <md-button class="md-raised md-primary" ng-click="$ctrl.updateStructure()">&nbsp Update &nbsp</md-button>
+    <md-button class="md-raised md-primary" ng-click="$ctrl.updateStructure()" ng-disabled="!$ctrl.validateStructure()">&nbsp Update &nbsp</md-button>
 </div>
