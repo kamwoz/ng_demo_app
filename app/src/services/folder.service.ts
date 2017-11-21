@@ -15,7 +15,7 @@ namespace app.services {
 
         public getFolderStructure(): ng.IPromise<any> {
             return this.$http.get(`${this.globalParams.API}/api/folder`)
-                .then((response) => JSON.parse(response.data));
+                .then((response: any) => JSON.parse(response.data));
         }
     }
 
