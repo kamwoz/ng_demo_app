@@ -1,5 +1,7 @@
 ### Installation
 
+!!! Warning !!! Run symfony server first, then angular
+
 Unpack your .zip with project files, then go in it and install dependencies
 
 `bower install`
