@@ -1,15 +1,15 @@
-Installation
+### Installation
 
-``typings install``
+Unpack your .zip with project files, then go in it and install dependencies
 
-``bower install``
+`bower install`
 
-``npm install``
+`npm install`
 
-If you have typescript compiler run ``tsc`` command
+After that you can run your up (see down below)
 
 ### Running app
 
-``./node_modules/http-server/bin/http-server -a localhost -p 8000 -c-1 ./app``
+``./node_modules/http-server/bin/http-server -a localhost -p 8001 -c-1 ./app``
 
- [Go to that address http://localhost:8000/#/](http://localhost:8000/#/)
+ [Go to that address http://localhost:8001/#/](http://localhost:8001/#/)
